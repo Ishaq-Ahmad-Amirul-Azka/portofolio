@@ -1,59 +1,986 @@
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0; border-bottom: 1px solid #334155; }
-        header h1 { font-size: 2.5rem; color: #38bdf8; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; color: #94a3b8; }
-        section { margin: 40px 0; }
-        h2 { color: #38bdf8; border-bottom: 2px solid #0284c7; display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
-        .card { background: #1e293b; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 1px solid #334155; }
-        .card h3 { color: #f1f5f9; margin-bottom: 8px; }
-        .card p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px; }
-        .btn { display: inline-block; background-color: #0284c7; color: white; text-decoration: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; }
-        .skills span { background: #334155; padding: 5px 12px; border-radius: 15px; font-size: 0.85rem; margin-right: 8px; display: inline-block; margin-bottom: 8px; }
-        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #334155; color: #64748b; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wren Calloway — Senior Creative &amp; Marketing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFEAE0;
+    --paper-2:#E4DDCC;
+    --ink:#1C1A16;
+    --ink-soft:#5B5548;
+    --accent:#8A5E1F;
+    --accent-bg:#C99A46;
+    --moss:#3E5343;
+    --moss-soft:#6F8873;
+    --rule:#C9BEA4;
+    --card:#F6F2E9;
+    --shadow: none;
+    --focus:#2A5AA0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#17150F;
+      --paper-2:#211E15;
+      --ink:#EDE7D9;
+      --ink-soft:#B9AF98;
+      --accent:#D9A54B;
+      --accent-bg:#D9A54B;
+      --moss:#8CAB92;
+      --moss-soft:#6F8873;
+      --rule:#3B3627;
+      --card:#1E1B13;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#17150F;
+    --paper-2:#211E15;
+    --ink:#EDE7D9;
+    --ink-soft:#B9AF98;
+    --accent:#D9A54B;
+    --accent-bg:#D9A54B;
+    --moss:#8CAB92;
+    --moss-soft:#6F8873;
+    --rule:#3B3627;
+    --card:#1E1B13;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  img,svg{max-width:100%; display:block;}
+  a{color:inherit;}
+  ::selection{background:var(--accent-bg); color:#1C1A16;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, .tile:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:3px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+    gap:24px;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.28rem;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .wordmark span{color:var(--accent);}
+  nav.links{
+    display:flex; gap:28px;
+    list-style:none; margin:0; padding:0;
+    font-size:0.92rem;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.links a:hover{ color:var(--ink); border-color:var(--accent);}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Archivo', sans-serif;
+    font-weight:600;
+    font-size:0.88rem;
+    padding:11px 20px;
+    border-radius:2px;
+    text-decoration:none;
+    border:1px solid var(--ink);
+    cursor:pointer;
+    background:transparent;
+    color:var(--ink);
+    transition:background .15s ease, color .15s ease, transform .1s ease;
+  }
+  .btn-solid{ background:var(--ink); color:var(--paper); }
+  .btn-solid:hover{ background:var(--accent); border-color:var(--accent); color:#1C1A16;}
+  .btn-line:hover{ background:var(--ink); color:var(--paper); }
+  .btn:active{ transform:translateY(1px); }
+  .btn svg{width:15px; height:15px; flex-shrink:0;}
+  .nav-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr 0.95fr;
+    gap:56px;
+    align-items:end;
+  }
+  .kicker{
+    font-size:0.86rem;
+    color:var(--accent);
+    font-weight:600;
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.6vw, 3.85rem);
+    line-height:1.06;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--accent);
+  }
+  .hero p.lede{
+    margin:24px 0 0;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .hero-actions{
+    display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;
+  }
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    border:1px solid var(--rule);
+    background:
+      radial-gradient(120% 90% at 15% 10%, color-mix(in srgb, var(--accent) 55%, var(--paper)) 0%, transparent 48%),
+      linear-gradient(155deg, var(--moss) 0%, var(--ink) 72%);
+    overflow:hidden;
+  }
+  .hero-visual .hv-grid{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--paper) 14%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--paper) 14%, transparent) 1px, transparent 1px);
+    background-size:14.2% 16.6%;
+  }
+  .hero-visual .hv-mark{
+    position:absolute; left:8%; bottom:8%;
+    font-family:'Fraunces', serif;
+    font-size:5.5rem;
+    line-height:0.8;
+    color:var(--paper);
+    font-weight:600;
+  }
+  .hero-visual .hv-tag{
+    position:absolute; top:8%; right:8%;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--paper);
+    opacity:0.8;
+    text-align:right;
+    max-width:11ch;
+  }
+  .hero-stats{
+    display:flex; gap:36px; margin-top:52px; flex-wrap:wrap;
+    border-top:1px solid var(--rule); padding-top:28px;
+  }
+  .stat b{
+    display:block; font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--ink);
+  }
+  .stat span{ font-size:0.86rem; color:var(--ink-soft); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:72px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+    margin-bottom:36px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); max-width:20ch; }
+  .section-head p{ margin:10px 0 0; color:var(--ink-soft); max-width:42ch; font-size:0.98rem; }
+  .section-num{ font-size:0.82rem; color:var(--ink-soft); white-space:nowrap; }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px;
+  }
+  .about-grid p{ color:var(--ink-soft); font-size:1.02rem; max-width:52ch; }
+  .about-grid p + p{ margin-top:16px; }
+  .principles{ list-style:none; margin:0; padding:0; display:grid; gap:22px; }
+  .principles li{ border-top:1px solid var(--rule); padding-top:16px; }
+  .principles h3{ font-size:1.08rem; font-weight:600; margin-bottom:6px; }
+  .principles p{ margin:0; font-size:0.92rem; color:var(--ink-soft); max-width:48ch; }
+
+  /* ---------- Filters ---------- */
+  .filters{
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px;
+  }
+  .chip{
+    font-family:'Archivo', sans-serif;
+    font-size:0.85rem;
+    font-weight:600;
+    padding:9px 16px;
+    border:1px solid var(--rule);
+    background:transparent;
+    color:var(--ink-soft);
+    border-radius:20px;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .chip:hover{ border-color:var(--ink); color:var(--ink); }
+  .chip[aria-pressed="true"]{
+    background:var(--ink); color:var(--paper); border-color:var(--ink);
+  }
+  .chip .count{ opacity:0.65; font-weight:400; margin-left:4px; }
+
+  /* ---------- Gallery ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:10px;
+    gap:20px;
+  }
+  .card{
+    grid-column:span 2;
+    border:1px solid var(--rule);
+    background:var(--card);
+    cursor:pointer;
+    text-align:left;
+    padding:0;
+    font:inherit;
+    color:inherit;
+    display:block;
+    transition:opacity .2s ease, transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{ border-color:var(--ink); }
+  .card.hidden{ display:none; }
+  .tile{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/11;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
+  }
+  .tile .mono{
+    position:absolute; inset:0;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    display:flex; align-items:flex-end; justify-content:flex-start;
+    padding:16px;
+    font-size:3.4rem;
+    line-height:0.8;
+  }
+  .tile .tag-float{
+    position:absolute; top:12px; right:14px;
+    font-size:0.68rem; letter-spacing:0.03em;
+    padding:4px 9px; border-radius:20px;
+  }
+  .card-meta{ padding:16px 18px 20px; }
+  .card-meta .p-title{ font-family:'Fraunces', serif; font-size:1.18rem; font-weight:600; margin:0 0 4px; }
+  .card-meta .p-sub{ font-size:0.86rem; color:var(--ink-soft); margin:0; }
+
+  /* tile palettes */
+  .t1{ background:linear-gradient(150deg, var(--moss) 0%, #1E2A21 100%); }
+  .t1 .mono{ color:var(--paper); }
+  .t1 .tag-float{ background:var(--paper); color:var(--moss); }
+
+  .t2{ background:linear-gradient(150deg, var(--accent-bg) 0%, #7A4E15 100%); }
+  .t2 .mono{ color:#1C1A16; }
+  .t2 .tag-float{ background:#1C1A16; color:var(--accent-bg); }
+
+  .t3{ background:repeating-linear-gradient(45deg, var(--paper-2) 0 12px, var(--card) 12px 24px); }
+  .t3 .mono{ color:var(--ink); }
+  .t3 .tag-float{ background:var(--ink); color:var(--paper); }
+
+  .t4{ background:radial-gradient(120% 140% at 80% 10%, var(--moss-soft) 0%, var(--ink) 65%); }
+  .t4 .mono{ color:var(--paper); }
+  .t4 .tag-float{ background:var(--accent-bg); color:#1C1A16; }
+
+  .t5{ background:linear-gradient(150deg, var(--ink) 0%, var(--moss) 100%); }
+  .t5 .mono{ color:var(--accent-bg); }
+  .t5 .tag-float{ background:var(--paper); color:var(--ink); }
+
+  .t6{ background:conic-gradient(from 210deg at 30% 30%, var(--accent-bg), var(--card) 40%, var(--moss-soft) 75%, var(--accent-bg)); }
+  .t6 .mono{ color:#1C1A16; }
+  .t6 .tag-float{ background:#1C1A16; color:var(--paper); }
+
+  .t7{ background:linear-gradient(160deg, var(--card) 0%, var(--paper-2) 60%, var(--rule) 100%); }
+  .t7 .mono{ color:var(--ink); }
+  .t7 .tag-float{ background:var(--moss); color:var(--paper); }
+
+  .t8{ background:linear-gradient(150deg, #7A4E15 0%, var(--ink) 100%); }
+  .t8 .mono{ color:var(--accent-bg); }
+  .t8 .tag-float{ background:var(--paper); color:var(--ink); }
+
+  /* asymmetric spans on larger screens */
+  @media (min-width:820px){
+    .card:nth-child(6n+1){ grid-column:span 2; }
+    .card:nth-child(6n+2){ grid-column:span 2; }
+    .card:nth-child(6n+3){ grid-column:span 4; }
+    .card:nth-child(6n+3) .tile{ aspect-ratio:32/13; }
+    .card:nth-child(6n+4){ grid-column:span 2; }
+    .card:nth-child(6n+5){ grid-column:span 2; }
+    .card:nth-child(6n+0){ grid-column:span 2; }
+  }
+  .gallery-fix{ } /* spacer for grid-auto-rows workaround via JS not needed: using auto height flow */
+  .gallery{ grid-auto-rows:auto; }
+
+  .empty-state{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+    border:1px dashed var(--rule);
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ display:grid; gap:0; }
+  .trow{
+    display:grid; grid-template-columns:140px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-top:1px solid var(--rule);
+  }
+  .trow:last-child{ border-bottom:1px solid var(--rule); }
+  .trow .dates{ font-size:0.88rem; color:var(--ink-soft); padding-top:3px; }
+  .trow h3{ font-size:1.15rem; font-weight:600; }
+  .trow .org{ color:var(--accent); font-size:0.92rem; font-weight:600; margin-top:2px;}
+  .trow p{ margin:10px 0 0; color:var(--ink-soft); font-size:0.94rem; max-width:64ch; }
+
+  /* ---------- Testimonials ---------- */
+  .quotes{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--rule); border:1px solid var(--rule);
+  }
+  .quote{
+    background:var(--paper); padding:28px 24px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .quote p.q{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.08rem;
+    line-height:1.42;
+    margin:0 0 20px;
+  }
+  .quote .who{ font-size:0.85rem; color:var(--ink-soft); }
+  .quote .who b{ color:var(--ink); display:block; font-weight:600; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px;
+  }
+  .contact-info p{ color:var(--ink-soft); max-width:40ch; }
+  .info-list{ list-style:none; margin:28px 0 0; padding:0; display:grid; gap:16px; }
+  .info-list li{ border-top:1px solid var(--rule); padding-top:14px; }
+  .info-list .label{ display:block; font-size:0.78rem; color:var(--ink-soft); margin-bottom:4px; }
+  .info-list a{ text-decoration:none; font-weight:600; border-bottom:1px solid transparent; }
+  .info-list a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  form.contact-form{ display:grid; gap:18px; }
+  .field{ display:grid; gap:6px; }
+  .field label{ font-size:0.82rem; font-weight:600; color:var(--ink-soft); }
+  .field input, .field textarea, .field select{
+    font-family:'Archivo', sans-serif;
+    font-size:0.96rem;
+    padding:12px 14px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    color:var(--ink);
+    border-radius:2px;
+    width:100%;
+  }
+  .field textarea{ resize:vertical; min-height:120px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .field .err{ font-size:0.78rem; color:#B23A2E; min-height:1em; }
+  .form-foot{ display:flex; align-items:center; gap:16px; margin-top:4px; flex-wrap:wrap; }
+  .form-note{ font-size:0.8rem; color:var(--ink-soft); }
+  .success-box{
+    display:none;
+    border:1px solid var(--moss);
+    background:color-mix(in srgb, var(--moss) 12%, var(--paper));
+    padding:18px 20px;
+    font-size:0.94rem;
+  }
+  .success-box.show{ display:block; }
+  .success-box b{ display:block; margin-bottom:4px; font-family:'Fraunces', serif; font-size:1.05rem; }
+
+  /* ---------- Footer ---------- */
+  footer{ padding:40px 0 56px; }
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .footer-row .wordmark{ font-size:1.05rem; }
+  .foot-links{ display:flex; gap:22px; list-style:none; margin:0; padding:0; font-size:0.86rem; }
+  .foot-links a{ text-decoration:none; color:var(--ink-soft); }
+  .foot-links a:hover{ color:var(--accent); }
+  .foot-note{ font-size:0.78rem; color:var(--ink-soft); margin-top:18px; }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:color-mix(in srgb, var(--ink) 55%, transparent);
+    display:none; align-items:center; justify-content:center; padding:24px; z-index:100;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--paper); border:1px solid var(--rule);
+    max-width:760px; width:100%; max-height:88vh; overflow-y:auto;
+    position:relative;
+  }
+  .modal-tile{ position:relative; aspect-ratio:16/8; }
+  .modal-tile .mono{ font-size:5rem; }
+  .modal-close{
+    position:absolute; top:14px; right:14px;
+    width:36px; height:36px; border-radius:50%;
+    background:var(--paper); border:1px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; z-index:5;
+  }
+  .modal-close:hover{ border-color:var(--ink); }
+  .modal-body{ padding:28px 32px 34px; }
+  .modal-body .m-tag{
+    display:inline-block; font-size:0.76rem; font-weight:600; color:var(--accent);
+    margin-bottom:10px;
+  }
+  .modal-body h3{ font-size:1.6rem; margin-bottom:6px; }
+  .modal-body .m-meta{ font-size:0.86rem; color:var(--ink-soft); margin-bottom:18px; }
+  .modal-body p.m-desc{ color:var(--ink-soft); font-size:0.98rem; max-width:60ch; }
+  .modal-stats{ display:flex; gap:30px; margin-top:22px; border-top:1px solid var(--rule); padding-top:18px; flex-wrap:wrap; }
+  .modal-stats div b{ display:block; font-family:'Fraunces', serif; font-size:1.4rem; }
+  .modal-stats div span{ font-size:0.78rem; color:var(--ink-soft); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; aspect-ratio:16/9; }
+    .about-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .quotes{ grid-template-columns:1fr; }
+    nav.links{ display:none; }
+  }
+  @media (max-width:640px){
+    .gallery{ grid-template-columns:repeat(2,1fr); }
+    .card, .card:nth-child(6n+3){ grid-column:span 2 !important; }
+    .card:nth-child(6n+3) .tile{ aspect-ratio:16/11 !important; }
+    .field-row{ grid-template-columns:1fr; }
+    .trow{ grid-template-columns:1fr; gap:6px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Ishaq Ahmad Amirul Azka</h1>
-            <p>Portofolio & Creative Projects</p>
-        </header>
 
-        <section>
-            <h2>Tentang Saya</h2>
-            <p>Halo! Selamat datang di website portofolio saya. Saya berfokus pada pembuatan proyek kreatif dan pengembangan solusi digital.</p>
-        </section>
-
-        <section>
-            <h2>Keahlian</h2>
-            <div class="skills">
-                <span>UI/UX Design</span>
-                <span>Web Development</span>
-                <span>Content Creation</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>Proyek Saya</h2>
-            <div class="card">
-                <h3>Proyek Pertama</h3>
-                <p>Deskripsi singkat mengenai proyek yang pernah kamu kerjakan.</p>
-                <a href="#" class="btn">Lihat Details</a>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Ishaq Ahmad. Hosted on GitHub Pages.</p>
-        </footer>
+<header class="site">
+  <div class="wrap nav">
+    <a href="#top" class="wordmark">Wren Calloway<span>.</span></a>
+    <nav class="links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid" id="cvBtnNav" download="Wren-Calloway-CV.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        Download CV
+      </a>
     </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--rule); padding-top:64px;">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Senior Creative &amp; Marketing Specialist</p>
+        <h1>Campaigns that make people stop scrolling <em>and start caring.</em></h1>
+        <p class="lede">Eleven years turning ambitious briefs into brand moments — from global product launches to scrappy startup rebrands. I lead with strategy, build with craft, and measure what actually moves the needle.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-solid">See selected work</a>
+          <a href="#contact" class="btn btn-line">Start a project</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>11+</b><span>Years in the craft</span></div>
+          <div class="stat"><b>60+</b><span>Campaigns launched</span></div>
+          <div class="stat"><b>24</b><span>Brands built or rebuilt</span></div>
+          <div class="stat"><b>3</b><span>Industry awards</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-grid"></div>
+        <span class="hv-tag">Selected work<br>2013 — present</span>
+        <span class="hv-mark">WC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Strategy first. Craft that carries it.</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I'm Wren — a senior creative and marketing specialist based in Portland, currently leading brand and campaign work at Field &amp; Co. Studio. Before that, I cut my teeth at Northlight Agency and Coil Creative, working across retail, food &amp; beverage, fintech, and a long list of startups that needed a point of view fast.</p>
+          <p>My approach is simple: get the strategy right before anyone touches a layout tool, then hold the craft to a standard that makes the strategy obvious. I've run workshops with founders, art-directed shoots, written the headline, and presented the performance report — often in the same week.</p>
+        </div>
+        <ul class="principles">
+          <li>
+            <h3>Strategy before style</h3>
+            <p>Every campaign starts with a clear position and a reason to believe. Design and copy exist to carry that argument, not decorate it.</p>
+          </li>
+          <li>
+            <h3>Craft over noise</h3>
+            <p>I'd rather ship one sharp idea than five safe ones. Consistency and restraint build recognition faster than volume does.</p>
+          </li>
+          <li>
+            <h3>Numbers that matter</h3>
+            <p>Every brief ends with a metric that mattered before it starts. Vanity numbers don't make the final report.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Selected work</h2>
+          <p>A cross-section of brand campaigns, launches, and identity work from the last few years. Filter by discipline, or click any project for the full story.</p>
+        </div>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter work by category" id="filters"></div>
+
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Where I've built it</h2>
+      </div>
+      <div class="timeline">
+        <div class="trow">
+          <div class="dates">2021 — Present</div>
+          <div>
+            <h3>Senior Creative &amp; Marketing Specialist</h3>
+            <div class="org">Field &amp; Co. Studio</div>
+            <p>Lead creative and marketing strategy for a dozen consumer and B2B clients, from brand identity through launch. Built and mentor a five-person creative pod spanning design, copy, and social.</p>
+          </div>
+        </div>
+        <div class="trow">
+          <div class="dates">2018 — 2021</div>
+          <div>
+            <h3>Marketing Lead</h3>
+            <div class="org">Northlight Agency</div>
+            <p>Owned integrated campaign strategy for 20+ product launches across retail, food &amp; beverage, and fintech. Grew organic channels from near-zero to 400K monthly engaged users.</p>
+          </div>
+        </div>
+        <div class="trow">
+          <div class="dates">2015 — 2018</div>
+          <div>
+            <h3>Brand Strategist</h3>
+            <div class="org">Coil Creative</div>
+            <p>Developed positioning, naming, and voice systems for early and growth-stage startups, translating ambiguous vision into go-to-market narratives founders could actually use.</p>
+          </div>
+        </div>
+        <div class="trow">
+          <div class="dates">2013 — 2015</div>
+          <div>
+            <h3>Junior Copywriter &amp; Designer</h3>
+            <div class="org">Ampersand Studio</div>
+            <p>Supported concepting, copywriting, and production for regional retail and hospitality clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What clients say</h2>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <p class="q">"Wren found the idea buried in our brief that nobody else had — and then made sure everyone downstream actually executed it well."</p>
+          <div class="who"><b>Priya Anand</b>VP Marketing, Loom Health</div>
+        </div>
+        <div class="quote">
+          <p class="q">"Rare to find someone equally sharp on strategy and on the work itself. Our rebrand shipped on time and it still feels distinct two years later."</p>
+          <div class="who"><b>Marcus Ito</b>Founder, Marrow Coffee</div>
+        </div>
+        <div class="quote">
+          <p class="q">"Wren runs a room well. Founders, engineers, and media buyers all left our workshops with the same story to tell."</p>
+          <div class="who"><b>Dana Ferreira</b>Creative Director, Glasswing Bank</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2 style="font-size:clamp(1.7rem, 3vw, 2.3rem); max-width:16ch;">Have a brief? Let's talk it through.</h2>
+        <p>I take on a small number of projects at a time — brand campaigns, launches, and content strategy work. Tell me what you're building and I'll reply within two business days.</p>
+        <ul class="info-list">
+          <li>
+            <span class="label">Email</span>
+            <a href="mailto:hello@wrencalloway.com">hello@wrencalloway.com</a>
+          </li>
+          <li>
+            <span class="label">Based in</span>
+            Portland, OR — open to remote &amp; travel
+          </li>
+          <li>
+            <span class="label">Elsewhere</span>
+            <a href="https://www.linkedin.com/in/wrencalloway" target="_blank" rel="noopener">LinkedIn</a>
+          </li>
+          <li>
+            <span class="label">Resume</span>
+            <a href="#" id="cvBtnInfo" download="Wren-Calloway-CV.pdf">Download CV (PDF)</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" autocomplete="name" required>
+              <span class="err" id="err-name"></span>
+            </div>
+            <div class="field">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" autocomplete="email" required>
+              <span class="err" id="err-email"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ftype">Project type</label>
+            <select id="ftype" name="type">
+              <option>Brand campaign</option>
+              <option>Product launch</option>
+              <option>Content &amp; social strategy</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="message" required placeholder="What are you working on, and what timeline are you thinking?"></textarea>
+            <span class="err" id="err-message"></span>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-solid">Send message</button>
+            <span class="form-note">Or email directly — hello@wrencalloway.com</span>
+          </div>
+          <div class="success-box" id="successBox" role="status">
+            <b>Message sent.</b>
+            Thanks for reaching out — I'll reply within two business days.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="#top" class="wordmark">Wren Calloway<span>.</span></a>
+      <ul class="foot-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:hello@wrencalloway.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/wrencalloway" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <p class="foot-note">© 2026 Wren Calloway. Selected work shown with permission; case studies summarized for portfolio use.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close project details">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-tile" id="modalTile">
+      <div class="tag-float" id="modalTagFloat"></div>
+      <div class="mono" id="modalMono"></div>
+    </div>
+    <div class="modal-body">
+      <span class="m-tag" id="modalCat"></span>
+      <h3 id="modalTitle"></h3>
+      <div class="m-meta" id="modalMeta"></div>
+      <p class="m-desc" id="modalDesc"></p>
+      <div class="modal-stats" id="modalStats"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PROJECTS = [
+    {
+      id:'northbound', title:'Northbound', client:'Northbound Apparel', year:'2024', role:'Creative Lead',
+      category:'branding', catLabel:'Branding', tile:'t1', mono:'N',
+      sub:'Outdoor apparel brand refresh',
+      desc:'Led a full identity refresh for a 12-year-old outdoor apparel brand losing ground to newer challengers — new mark, voice, and a campaign built around real trail routes instead of studio shots.',
+      stats:[['32%','Lift in brand recall'],['4mo','Strategy to launch']]
+    },
+    {
+      id:'fielday', title:'Fielday', client:'Fielday Foods', year:'2023', role:'Marketing Lead',
+      category:'digital', catLabel:'Digital & Social', tile:'t2', mono:'F',
+      sub:'Direct-to-consumer product launch',
+      desc:'Built the go-to-market campaign for a new snack line, including paid social, influencer seeding, and a launch-week content calendar that carried the brand voice across every channel.',
+      stats:[['1.2M','Launch-week reach'],['3.4x','Return on ad spend']]
+    },
+    {
+      id:'marrow', title:'Marrow Coffee', client:'Marrow Coffee Roasters', year:'2022', role:'Brand Strategist',
+      category:'print', catLabel:'Print & Packaging', tile:'t3', mono:'M',
+      sub:'Identity and packaging system',
+      desc:'Developed the naming, identity, and packaging system for a roastery expanding from one shop to regional retail — a modular system that scales across a growing bag lineup.',
+      stats:[['18','SKUs launched'],['6','Retail regions']]
+    },
+    {
+      id:'loom', title:'Loom Health', client:'Loom Health', year:'2023', role:'Content Strategy Lead',
+      category:'content', catLabel:'Content Strategy', tile:'t4', mono:'L',
+      sub:'Editorial and content strategy',
+      desc:'Rebuilt the content strategy for a telehealth platform — an editorial calendar, tone guide, and distribution plan that grew organic traffic without sacrificing clinical accuracy.',
+      stats:[['400K','Monthly engaged users'],['9mo','To organic breakeven']]
+    },
+    {
+      id:'verve', title:'Verve Festival', client:'Verve Music Festival', year:'2022', role:'Campaign Director',
+      category:'branding', catLabel:'Branding', tile:'t5', mono:'V',
+      sub:'Annual festival campaign',
+      desc:'Directed the annual campaign for a mid-size music festival — key art, ticketing funnel messaging, and a partner co-marketing kit used by 40+ sponsor brands.',
+      stats:[['22%','YoY ticket growth'],['40+','Partner brands supported']]
+    },
+    {
+      id:'glasswing', title:'Glasswing Bank', client:'Glasswing Bank', year:'2021', role:'Marketing Lead',
+      category:'product', catLabel:'Product Marketing', tile:'t6', mono:'G',
+      sub:'Product marketing for a challenger bank',
+      desc:'Owned product marketing for a challenger bank\u2019s savings product launch — positioning, landing pages, and a lifecycle email series that moved signups past the app-download step.',
+      stats:[['41%','Signup-to-activation lift'],['5','Product lines supported']]
+    },
+    {
+      id:'kindred', title:'Kindred Kitchen', client:'Kindred Kitchen', year:'2020', role:'Social Lead',
+      category:'digital', catLabel:'Digital & Social', tile:'t7', mono:'K',
+      sub:'Community-led social campaign',
+      desc:'Built a community-led social campaign for a meal-kit brand during a competitive category squeeze, leaning on user-generated content instead of paid media to hold share.',
+      stats:[['3.1x','Organic growth rate'],['0','New paid spend added']]
+    },
+    {
+      id:'papertrail', title:'Paper Trail Press', client:'Paper Trail Press', year:'2019', role:'Designer & Strategist',
+      category:'print', catLabel:'Print & Packaging', tile:'t8', mono:'P',
+      sub:'Stationery brand identity',
+      desc:'Designed the identity and packaging suite for an independent stationery press, balancing a handmade feel with a system tidy enough to scale into wholesale accounts.',
+      stats:[['12','Wholesale accounts won'],['1yr','To national distribution']]
+    }
+  ];
+
+  var CATEGORIES = [
+    {key:'all', label:'All work'},
+    {key:'branding', label:'Branding'},
+    {key:'digital', label:'Digital & Social'},
+    {key:'content', label:'Content Strategy'},
+    {key:'product', label:'Product Marketing'},
+    {key:'print', label:'Print & Packaging'}
+  ];
+
+  var galleryEl = document.getElementById('gallery');
+  var filtersEl = document.getElementById('filters');
+  var activeCat = 'all';
+
+  function countFor(key){
+    if(key === 'all') return PROJECTS.length;
+    return PROJECTS.filter(function(p){ return p.category === key; }).length;
+  }
+
+  function renderFilters(){
+    filtersEl.innerHTML = '';
+    CATEGORIES.forEach(function(c){
+      var btn = document.createElement('button');
+      btn.className = 'chip';
+      btn.type = 'button';
+      btn.setAttribute('aria-pressed', c.key === activeCat ? 'true' : 'false');
+      btn.innerHTML = c.label + ' <span class="count">' + countFor(c.key) + '</span>';
+      btn.addEventListener('click', function(){
+        activeCat = c.key;
+        renderFilters();
+        applyFilter();
+      });
+      filtersEl.appendChild(btn);
+    });
+  }
+
+  function renderGallery(){
+    galleryEl.innerHTML = '';
+    PROJECTS.forEach(function(p){
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'card';
+      card.dataset.category = p.category;
+      card.setAttribute('aria-label', 'View project: ' + p.title);
+      card.innerHTML =
+        '<span class="tile ' + p.tile + '">' +
+          '<span class="tag-float">' + p.catLabel + '</span>' +
+          '<span class="mono">' + p.mono + '</span>' +
+        '</span>' +
+        '<span class="card-meta">' +
+          '<span class="p-title">' + p.title + '</span>' +
+          '<span class="p-sub">' + p.sub + '</span>' +
+        '</span>';
+      card.addEventListener('click', function(){ openModal(p); });
+      galleryEl.appendChild(card);
+    });
+  }
+
+  function applyFilter(){
+    var cards = galleryEl.querySelectorAll('.card');
+    var visibleCount = 0;
+    cards.forEach(function(card){
+      var show = activeCat === 'all' || card.dataset.category === activeCat;
+      card.classList.toggle('hidden', !show);
+      if(show) visibleCount++;
+    });
+    var existingEmpty = galleryEl.querySelector('.empty-state');
+    if(existingEmpty) existingEmpty.remove();
+    if(visibleCount === 0){
+      var empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'No projects in this category yet — check back soon.';
+      galleryEl.appendChild(empty);
+    }
+  }
+
+  // Modal
+  var overlay = document.getElementById('modalOverlay');
+  var modalTile = document.getElementById('modalTile');
+  var modalMono = document.getElementById('modalMono');
+  var modalTagFloat = document.getElementById('modalTagFloat');
+  var modalCat = document.getElementById('modalCat');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalMeta = document.getElementById('modalMeta');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalStats = document.getElementById('modalStats');
+  var lastFocused = null;
+
+  function openModal(p){
+    lastFocused = document.activeElement;
+    modalTile.className = 'modal-tile tile ' + p.tile;
+    modalMono.textContent = p.mono;
+    modalTagFloat.textContent = p.catLabel;
+    modalCat.textContent = p.catLabel;
+    modalTitle.textContent = p.title;
+    modalMeta.textContent = p.client + ' · ' + p.year + ' · ' + p.role;
+    modalDesc.textContent = p.desc;
+    modalStats.innerHTML = '';
+    p.stats.forEach(function(s){
+      var d = document.createElement('div');
+      d.innerHTML = '<b>' + s[0] + '</b><span>' + s[1] + '</span>';
+      modalStats.appendChild(d);
+    });
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modalClose').focus();
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  renderFilters();
+  renderGallery();
+  applyFilter();
+
+  // Contact form
+  var form = document.getElementById('contactForm');
+  var successBox = document.getElementById('successBox');
+  function setErr(id, msg){ document.getElementById(id).textContent = msg || ''; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('fname').value.trim();
+    var email = document.getElementById('femail').value.trim();
+    var message = document.getElementById('fmessage').value.trim();
+    var ok = true;
+
+    setErr('err-name',''); setErr('err-email',''); setErr('err-message','');
+
+    if(!name){ setErr('err-name','Please add your name.'); ok = false; }
+    if(!email){ setErr('err-email','Please add your email.'); ok = false; }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setErr('err-email','That email looks incomplete.'); ok = false; }
+    if(!message || message.length < 10){ setErr('err-message','Add a few details about the project.'); ok = false; }
+
+    if(!ok) return;
+
+    // No backend is connected in this static page — this simulates a
+    // successful submission. Wire this up to a form service or your
+    // own endpoint to actually deliver messages.
+    successBox.classList.add('show');
+    form.reset();
+    successBox.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  // CV download wiring (data URI is injected below)
+  var CV_DATA_URI = 'data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFdyZW4gQ2FsbG93YXkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA5MTkwNDMyMTgrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA5MTkwNDMyMTgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFdyZW4gQ2FsbG93YXkgLSBDVikgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjAyMQo+PgpzdHJlYW0KR2F1SExnTiklLCY6TzpTbHE5LTBAa2tWaEhFL1R0KSgzL0s7UHFddD9YT01AOm0xa11KQ15aK2haWlBKW1I4TktsWnRaPGQxaitDYjtqMk9vWUFGMWNbSTJFXnU1PllycEdAI19kV3BZa18tMCJKXz1OJHFqdUVATipSOUhPbFBKQl1eJ2ZbMWBIMT9ocWc/ZF5pQEVXIWJBYHBWUyhKQGcrMU9VJiYsSTw+SidjXjkkMVI3bm0mOTxqdWs5cEw7Zz8uW20wQk5oTiUsTlssKDhkPVhQdFpddVpTQSpCLzIuaSdhOiUlOmFAL0dTTCRCb1shOStHYDcqZnJnXCFVLFlUTDFSYl5rZCNIJ3VIOnNGNGhvOShHWmpAbmZFR0Q+LVFHPShVaFldWFBvNG43aXMzO3RVajBMOjBLTl5xWl0ndWR0PD5AUy8rLTNbLWdZUWY6NnJAOilSZWxNaTlaUjA+X0w4S3AhaGBpbXFuYTgyPWxTIXFAM1Q5MydTNnMuYF4qcDYjPihFRSZjbUMsRFAkPUFeXiRqMzU0RUE8OzYsRz0tMj8qQGdZSyFoLyouXW1TYSJCXCclS2VAJF9XQFtZREJDR1EqO2ZOJV9uPGx0a2o7Ji0oTDNQRUA7PzdUNVE/JVUzaz4xPmtDOC8tZ2hxO01PRHRgMkpTWHJoQGs/c2JsLUwzUyFTTzdJWzMvLE4rTiRsP2REQVNiMFM7NzMuczFba0NhYkRRWHQsZzlCJCVHO08hTE1MJC1UaD5KNCs/TlxIW2JRZDU5U3Q9SVldcUJKSEc7RGFTWixcLDBxYURkWzosPTxTKSRjX3VOTixYKmdAQXJvcnNnSVhDWnFkLEMpOGc6W3NESU9UZTRobmgyWUMnam5fQCk/PEVoLS1qKCRFUjxnJFpMWyRINGg4cDkmQyNYW0VJKE9nVW9bI1srPyNLPUsjR0FXZUF1KjxePlBkK2E3YldOInJGRSFPKnJaMCFxTzlTOV5PPjdrIkk/PykrUD8rWTVGTTVrK1IoS0ZKPFEuJnQ3YUY+TS9jMlA7QT5vcT47VlIsLlhKdE8mdV8tUEdSZSpeIXVsTyFOaVg3XFFMSCY9LExfTF04IztDNl48b1xEXFFyUyM8TS46TWdSaF9YJC1FLk85PmJrQ0pocVRlbFY0YFJldDlxQ0pjWyhHbWA+RDldYEZiM19GUGAtJ0YvQmc2Vks0MTRLTU08YT1yWk5PSV9eTFYhOThWWTQxUiJZW01zMVpwPGYvQTI1dSZvJFhTUDZtN3JfVVY/VEhWM1AtK2huPkVYclJxPm5aZXI0YW9lJnJfOkVAUFxTKkJPSiIkSElNR2NOaXBXYFEpQmQ7Ylk6Qko2NlJZRG9FSDFvaGs2UXIuJEtXSUA3V15fUFNANS9EJFQ6KiZxIWRIO0lEPS1XSilndSRCbm8qWnUjQTUkLGAsL0pANUgrcGQ8W09rbUo/QWowLUckQWFVRm5sbWNaJDkjRHBsPG8sbltLZ0ZNV2IwTGFRKXFEa2EnXmpmKGxnMS5GPmlrUTdhMjBVdUheVEhGWHJaQl5YUkNVZztNcWhSRk1nR0ZKMFwjQEtybVRSUTZVSSkwS09HUUNMWWY0P1EuQmhFOyEjZWwsXjsiJ0IiS2lPNlQlZ0E7OE4hQXFbTS9adWFOLFklZl1OTDwwQmsuRXE4c10nXkFOWlErUCZCYypJL1YydTo7K1Uyai85O2RHSUdBTENkOTw9O0UnNiltVlBTPUpDWjY6U1ZIW2wyT2UrVE1KR2ZnOiU3Tjh1QixVODdYR0xNaXFSTT9NQT9lUVQvNDY4WCcrbW9kOiJVJSNyVSxoKj85cFdYcF89RyQvcE5kXExjM0RVZkRtWkBFMnNUM1FMdSYzYDhAQktLKDI7NXNtTDRqVV5lJXRMYm4lOjhAOnJGVlYoImFJOmA8MyVEWyZoJypiTkd0LkZyZ3FncVpeYlgwVE0oRF4mIW9rUWlASixJRGw+LjRVby1QVGduVSRYRGVMIzledUNiOjZAPFw3SCNiMmhFQXFWRCsjKG1lRGVrT2pbXyNNOSxVNDM7X2ArOixDNE5vQjMtRjBYNDolOUxSdSlDPWxaVkhXJDRwPkQpcFNXUkM3ZFFQWjtWQltJam5ETVo/XXJ1XihnV1t0REZoc0YlN2g/YmRBYEhCVFNZNkI0I1RhVW8wX0JmUENlXEFbX2ZkLy9COHU/VFVhMERxPDNXJWsvXGdKLlUjaG9MW2EkXUtjai0sW1BZN24objRhTUBKazJqZy5ObTR0bl4/XUopKk5xL28mIkAuTlJZZlBAKiZLRD9uKlpMPG87cjosQik/R0tYZicoPkthWzZObUVzQ1FVbGMtOzxkKShNWWlAI1JjY05SSz5YdERJU2lFaCIlLyQ5dC9eciMzPycxaFtORm4jNklqSHNLYDBnQk5qVUhpRDZILzxUbFpCRWw1IVNBaC9kZjFAJlxcQWFjR1ZIQCNCbDw6M1JcYEkkPDpRYVcrb1YsamBwTDxVcz9BRmhRSXA8PCs9PW1AR2YtcllJZjhdOSVnYkY6IVolcCpDI3I2cFE6bUItMkcrLFdsYT5ja1NtNEg3JkMzLjg5IzgmaEcpPkYvWkducyZgKDNKaFpeKFZiLkpTMCk8UlVSZi5RPT1ZYz09PklzPG1YSGlGLVtWOE1kfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxMAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDAzMzEgMDAwMDAgbiAKMDAwMDAwMDQ0NiAwMDAwMCBuIAowMDAwMDAwNjM5IDAwMDAwIG4gCjAwMDAwMDA3MDcgMDAwMDAgbiAKMDAwMDAwMDk5MiAwMDAwMCBuIAowMDAwMDAxMDUxIDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDc0Y2ZkZWVjYTQxNjE1OWFjZDE5MjQ3YjI0ZDk1ODA3Pjw3NGNmZGVlY2E0MTYxNTlhY2QxOTI0N2IyNGQ5NTgwNz5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gNyAwIFIKL1Jvb3QgNiAwIFIKL1NpemUgMTAKPj4Kc3RhcnR4cmVmCjMxNjMKJSVFT0YK';
+  document.getElementById('cvBtnNav').setAttribute('href', CV_DATA_URI);
+  document.getElementById('cvBtnInfo').setAttribute('href', CV_DATA_URI);
+})();
+</script>
+
 </body>
 </html>
